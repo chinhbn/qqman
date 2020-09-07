@@ -47,7 +47,7 @@
 
 manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP", 
                       col=c("gray10", "gray60"), chrlabs=NULL,
-                      suggestiveline=-log10(1e-5), genomewideline=-log10(5e-8), 
+                      suggestiveline=-log10(1e-5), genomewideline=-log10(5e-8), cex.text=0.9, 
                       highlight=NULL, logp=TRUE, annotatePval = NULL, annotateTop = TRUE, ...) {
 
     # Not sure why, but package check will warn without this.
@@ -240,9 +240,9 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
                 
             }
             if (logp ){
-                textxy(topSNPs$pos, -log10(topSNPs$P), offset = 0.625, labs = topSNPs$SNP, cex = 0.8, ...)
+                textxy(topSNPs$pos, -log10(topSNPs$P), offset = 0.625, labs = topSNPs$SNP, cex = cex.text, ...)
             } else
-              textxy(topSNPs$pos, topSNPs$P, offset = 0.625, labs = topSNPs$SNP, cex = 0.8, ...)
+              textxy(topSNPs$pos, topSNPs$P, offset = 0.625, labs = topSNPs$SNP, cex = cex.text, ...)
         }
     }  
     par(xpd = FALSE)
