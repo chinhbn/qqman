@@ -218,15 +218,15 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
             topHits = subset(d, P <= annotatePval)
         } else
             topHits = subset(d, P >= annotatePval)
-        par(xpd = TRUE)
+        par(xpd = TRUE, cex=1, cex.text= 1.5)
         # annotate these SNPs
         if (annotateTop == FALSE) {
           if (logp) {
               with(subset(d, P <= annotatePval), 
-                   textxy(pos, -log10(P), offset = 0.625, labs = topHits$SNP, cex = 3.8), ...)
+                   textxy(pos, -log10(P), offset = 0.625, labs = topHits$SNP, cex = 0.8), ...)
           } else
               with(subset(d, P >= annotatePval), 
-                   textxy(pos, P, offset = 0.625, labs = topHits$SNP, cex = 3.8), ...)
+                   textxy(pos, P, offset = 0.625, labs = topHits$SNP, cex = 0.8), ...)
         }
         else {
             # could try alternative, annotate top SNP of each sig chr
@@ -240,9 +240,9 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
                 
             }
             if (logp ){
-                textxy(topSNPs$pos, -log10(topSNPs$P), offset = 0.625, labs = topSNPs$SNP, cex = 3.8, ...)
+                textxy(topSNPs$pos, -log10(topSNPs$P), offset = 0.625, labs = topSNPs$SNP, cex = 0.8, ...)
             } else
-              textxy(topSNPs$pos, topSNPs$P, offset = 0.625, labs = topSNPs$SNP, cex = 3.8, ...)
+              textxy(topSNPs$pos, topSNPs$P, offset = 0.625, labs = topSNPs$SNP, cex = 0.8, ...)
         }
     }  
     par(xpd = FALSE)
