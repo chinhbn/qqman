@@ -47,7 +47,7 @@
 
 manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP", 
                       col=c("gray10", "gray60"), chrlabs=NULL,
-                      suggestiveline=-log10(1e-5), genomewideline=-log10(5e-8), cex.text=0.9, 
+                      suggestiveline=-log10(1e-5), genomewideline=-log10(5e-8), cex.text=1.5, 
                       highlight=NULL, logp=TRUE, annotatePval = NULL, annotateTop = TRUE, ...) {
 
     # Not sure why, but package check will warn without this.
@@ -218,7 +218,7 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
             topHits = subset(d, P <= annotatePval)
         } else
             topHits = subset(d, P >= annotatePval)
-        par(xpd = TRUE, cex=1, cex.text= 1.5)
+        par(xpd = TRUE)
         # annotate these SNPs
         if (annotateTop == FALSE) {
           if (logp) {
